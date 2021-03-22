@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'interventions/intervention'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount Blazer::Engine, at: "blazer"
 
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'pages#index'
+  root "interventions#intervention"
   get 'pages/commercial'
   get 'pages/residential'
   get 'pages/quote'# => 'application#quotes'

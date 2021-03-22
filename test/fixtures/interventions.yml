@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Author: 1
+  CustomerID: MyString
+  integer: MyString
+  BuildingID: MyString
+
+two:
+  Author: 1
+  CustomerID: MyString
+  integer: MyString
+  BuildingID: MyString
