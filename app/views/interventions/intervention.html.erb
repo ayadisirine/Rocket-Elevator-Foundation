@@ -1,2 +1,206 @@
-<h1>Interventions#intervention</h1>
-<p>Find me in app/views/interventions/intervention.html.erb</p>
+<!-- create a form using intervention model  -->
+<!-- local true means that database is local otherwise remote:true  -->
+<body id="<%= params[:controller] %>">
+<%= form_with(model: @intervention, url: interventions_path,  local: true) do |form| %>    
+    
+    <!-- wrapper : wrapping in the container -->
+    <div id="wrapper">
+        <!--Bootstrap 4 for more values details : https://stackoverflow.com/questions/41574776/what-is-class-mb-0-in-bootstrap-4 -->
+        <hr class="mt-1" />
+
+        <!-- AUTHOR -->
+        <section id="author">
+            <div class="container">
+                <header class="text-center mb-40">
+                    <h2>INTERVENTION</h2>
+                </header>
+                
+                <div class="row">
+                    <!-- FORM -->
+                    <div class="col-md-8 col-sm-8">
+                        
+                                            
+                        <fieldset>
+                            <input type="hidden" name="action" value="author_send" />
+                            
+                        <%# Author  %>
+                        <div class="row" style="margin-left: 1px">
+                                <div class="col-md-8">
+                                        <%= form.label :Author %>
+                                        <!-- options_from_collection_for_select(collection, value_method, text_method, selected = nil) -->
+                                        <!-- include_blank : for first itme -->
+                                        <!-- The output will be : select name="employee" id="employee" : This will serves to manage value change in intervention.js-->
+                                        <%= form.select :employee, options_from_collection_for_select(Employee.all, "id", "first_name"), include_blank: "----" %>
+                                </div>
+                        </div>
+
+
+                        <%# customer  %>
+                        <div class="row" style="margin-left: 1px">
+                            <div class="col-md-8">
+                                    <%= form.label :customer %>
+                                    <!--select(object, method, choices = nil, options = {}, html_options = {}, &block)-->
+                                    <!--Create a select tag and a series of contained option tags for the provided object and method.
+                                     The option currently held by the object will be selected, provided that the object is available.-->
+                                     <!-- The output will be : select name="employee" id="employee" : This will serves to manage value change in intervention.js-->
+                                    <%= form.select(:customer, Customer.all.collect {|c| [c.company_name, c.id]}.sort_by(&:first), {prompt: "----"}, {class: 'form-control'}) %>
+                                    
+                            </div>
+                        </div>
+                            
+                         <%# building  %>       
+                        <div class="building-class">
+                            <div class="col-md-8">
+                                    <%= form.label :building %>
+                                    <!--select(object, method, choices = nil, options = {}, html_options = {}, &block)-->
+                                    <!--Create a select tag and a series of contained option tags for the provided object and method.
+                                     The option currently held by the object will be selected, provided that the object is available.-->
+                                     <!-- The output will be : select name="building" id="building" : This will serves to manage value change in intervention.js-->
+                                    
+                                    
+                                    <%= form.select(:building, Building.all.collect {|b| [b.id, b.customer_id ]}, {prompt: "id"},  {class: 'form-control'}) %>
+                            </div>
+                        </div>
+
+                         <%# batteries  %>        
+                        <div class="battery-class">
+                            <div class="col-md-8">
+                                    <%= form.label :battery %>
+                                    <!--select(object, method, choices = nil, options = {}, html_options = {}, &block)-->
+                                    <!--Create a select tag and a series of contained option tags for the provided object and method.
+                                     The option currently held by the object will be selected, provided that the object is available.-->
+                                     <!-- The output will be : select name="battery" id="battery" : This will serves to manage value change in intervention.js-->
+                                    
+                                    <%= form.select(:battery, Battery.all.collect {|d| [d.id, d.building_id ]}, {prompt: "id"}, {class: 'form-control'}) %>
+                            </div>
+                        </div>
+                            
+                         <%# columns  %>        
+                        <div class="column-class">
+                            <div class="col-md-8">
+                                    <%= form.label :column %>
+                                    <!--select(object, method, choices = nil, options = {}, html_options = {}, &block)-->
+                                    <!--Create a select tag and a series of contained option tags for the provided object and method.
+                                     The option currently held by the object will be selected, provided that the object is available.-->
+                                     <!-- The output will be : select name="column" id="column" : This will serves to manage value change in intervention.js-->
+                                    
+                                    <%= form.select(:column, Column.all.collect {|c| [c.id, c.battery_id ]}, {prompt: "id"}, {class: 'form-control'}) %>
+                            </div>
+                        </div>
+
+                         <%# elevators  %>       
+                        <div class="elevator-class">
+                            <div class="col-md-8">
+                                    <%= form.label :elevator %>
+                                    <!--select(object, method, choices = nil, options = {}, html_options = {}, &block)-->
+                                    <!--Create a select tag and a series of contained option tags for the provided object and method.
+                                     The option currently held by the object will be selected, provided that the object is available.-->
+                                     <!-- The output will be : select name="elevator" id="elevator" : This will serves to manage value change in intervention.js-->
+                                    
+                                    <%= form.select(:elevator, Elevator.all.collect {|e| [e.id, e.column_id ]}, {prompt: "id"}, {class: 'form-control'}) %>
+                            </div>
+                        </div>
+
+                
+
+                        <%# Description field to submit intervention %>
+                        <div class="col-md-12">
+                                <%= form.label :Description%>
+                                <%= form.text_area :report, class: 'form-control', rows: '6' %>
+                        </div>
+                    </div>
+                                    
+                                
+                </fieldset>
+
+
+            </div>
+                    <!-- /FORM -->
+
+                    <!-- INFO -->
+                    <div class="col-md-8 col-md-8">
+
+                            <!-- SUBMIT BUTTON -->
+                            <div class="toggle-transparent toggle-bordered-full clearfix">
+                                <div class="toggle active">
+                                    
+                            
+                                        <hr>
+                                    <div class="actions"> 
+                                    <%= form.submit class: 'btn btn-primary danger', value: 'Save', :onclick => "alert('Information about your intervention saved !')"%>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- /SUBMIT BUTTON  -->
+                                    
+
+
+                                
+
+                    </div>
+
+
+                            </div>
+                        </div>
+                        <!-- /CREATE ACCOUNT -->
+
+                    
+                    <!-- /CHECKOUT -->
+                    
+                </div>
+                    <!-- /INFO -->
+                    
+                </div>
+
+            </div>
+        </section>
+        <!-- /CONTACT -->
+
+
+
+
+        
+    </div>
+<%=javascript_include_tag "intervention.js" %>
+<!-- FOOTER -->
+			<footer id="footer">
+				<div class="container mt-0 mb-30">
+					<div class="row">
+						<!-- col #1 -->
+						<div class="col-md-7">
+							<h3 class="letter-spacing-1">WHY US?</h3>
+							<!-- Small Description -->
+							<p>
+								We have the conviction that we create the most innovative and reliable products on the market. </br>
+								Contact us today for any questions you might have.
+							</p>
+						</div>
+						<!-- /col #1 -->
+						<!-- col #2 -->
+						<div class="col-md-5">
+                            <h3>(418) 555-1234</h3>
+                            <p>
+                                <span class="block"><strong><i class="fa fa-map-marker"></i> 418-725 Boulevard Lebourgneuf, Québec, QC G2J 0C4, Canada</span>
+                                <span class="block"><strong><i class="fa fa-envelope"></i> Email:</strong> <a href="mailto:info@codebox.biz">info@codebox.biz</a></span>
+                            </p>
+						</div>
+						<!-- /col #2 -->
+					</div>
+				</div>
+				<div class="copyright">
+					<div class="container">
+						&copy; All Rights Reserved
+					</div>
+				</div>
+			</footer>
+			<!-- /FOOTER -->
+        </div>
+    <!-- /wrapper -->
+
+
+    
+
+    <% end %>
+</body>

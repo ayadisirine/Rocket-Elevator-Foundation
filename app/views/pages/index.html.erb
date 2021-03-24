@@ -42,7 +42,11 @@
                             <li><!-- CONTACT -->
                                 <%= link_to "CONTACT",root_path(:anchor => "contact") %>
                             </li>
+
 							<% if user_signed_in? && current_user.supervisor_role? %>
+								<li><!-- Interventions -->
+                  					<%= link_to 'INTERVENTIONS', interventions_path %>
+                				</li>
 								<li><!-- LOGOUT -->
 									<%= link_to "LOGOUT", destroy_user_session_path, method: :delete %>
 								</li>

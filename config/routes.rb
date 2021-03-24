@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'pages#index'
-  root "interventions#intervention"
+  #Adding route for intervention 
+  get 'interventions' => 'interventions#intervention'
   get 'pages/commercial'
   get 'pages/residential'
   get 'pages/quote'# => 'application#quotes'
@@ -17,9 +18,16 @@ Rails.application.routes.draw do
   #   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # end
   resources :leads
+  
   post '/leads', to: 'leads#create'
 
   get 'dropbox/auth_callback' => 'dropbox#auth_callback'
+  resources :interventions do
+    get :get_building, on: :collection
+    get :get_battery, on: :collection
+    get :get_column, on: :collection
+    get :get_elevator, on: :collection
+  end 
 
 end
 
