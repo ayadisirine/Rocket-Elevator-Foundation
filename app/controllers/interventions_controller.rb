@@ -119,7 +119,7 @@ class InterventionsController < ApplicationController
             config.token = ENV['ZENDESK_TOKEN']
         end
         ZendeskAPI::Ticket.create!(client,
-            :subject => "**NEW INTERVENTION** created by : " + @currentusername.to_s ,
+            :subject => "NEW INTERVENTION created by : " + @currentusername.to_s ,
             :comment => "The customer ID :  #{params[:customer]} 
                        Building ID :  #{params[:building]} 
                        Battery ID :  #{params[:battery]} 
