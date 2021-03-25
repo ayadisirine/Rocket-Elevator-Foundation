@@ -1,4 +1,5 @@
 class InterventionsController < ApplicationController
+    require 'zendesk_api'
 
 
     
@@ -104,22 +105,38 @@ class InterventionsController < ApplicationController
           @intervention.column_id = params[:column]
           @intervention.elevator_id = params[:elevator]
          
-          
-          
-        
          
           if @intervention.save
             redirect_back fallback_location: root_path, notice:"Your intervention was successfully created and sent "
+            create_intervention_ticket()
           end 
-
-
-    
-    
     end
+
+    def create_intervention_ticket
+        client = ZendeskAPI::Client.new do |config|
+            config.url = ENV['ZENDESK_URL']
+            config.username = ENV['ZENDESK_USERNAME']
+            config.token = ENV['ZENDESK_TOKEN']
+        end
+        ZendeskAPI::Ticket.create!(client,
+            :subject => "**NEW INTERVENTION** created by : " + @currentusername.to_s ,
+            :comment => "The customer ID :  #{params[:customer]} 
+                       Building ID :  #{params[:building]} 
+                       Battery ID :  #{params[:battery]} 
+                       Column ID :  #{params[:column]} 
+                       Elevator ID :  #{params[:elevator]} 
+                       Affected employee ID :  #{params[:employee]} 
+                       Description :  #{params[:report]} ",
+            :priority => "urgent",
+            :type => "question")
+        end 
+    end
+            
+    
+
  
     def intervention_params
         params.permit( :employee_id, :customer_id, :building_id, :battery_id, :column_id, :elevator_id, :result, :report, :status)
       end
 
     
-  end
