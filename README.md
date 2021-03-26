@@ -187,7 +187,7 @@ Then we developed a rake task to generate random data into that table.
 ![](fact_int2.jpg)
 
 
-# week 9 :fondation  #
+# week 9 :foundation  #
 
 </br>
 PART A
