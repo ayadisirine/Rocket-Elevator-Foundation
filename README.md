@@ -189,36 +189,46 @@ Then we developed a rake task to generate random data into that table.
 
 # week 9 :fondation  #
 
-
+</br>
 PART A
+</br>
 1- A new interventions table is added to the mysql database
+</br>
 2- An intervention form is added to the web site. 
+</br>
 The form can be accessed after login. The intervention link appears after contact menu  
+</br>
 The form consists on an evolutionary path. After each choice another appears 
+</br>
 3- The save action implies : 
   (a) insert the intervention filled data in the DB
   (b) create a zendesk ticket 
-
+</br>
 PART B 
 1- A .net Rest Apis interventions for Rocket Elevators is created.
 Below the 3 defined links which can be consumed using postman 
-
+</br>
 Git Repository:   git@github.com:ayadisirine/Rest_conso.git
+</br>
 Azure deployment: https://sirinerocketelevatorsrestapi.azurewebsites.net/
+</br>
 --WS1--
   Method : GET
   Link https://sirinerocketelevatorsrestapi.azurewebsites.net/api/interventions/Pending  
   Scoop: to get all the interventions that do not have a start date and are in "Pending" status.
+  </br>
 --WS2--
   Method: PUT
   Link: https://sirinerocketelevatorsrestapi.azurewebsites.net/api/interventions/inprogress/{id}
   Example: https://sirinerocketelevatorsrestapi.azurewebsites.net/api/interventions/inprogress/4 
   Scoop: to make the intervention status to InProgress, and set a staring date, and time
+  </br>
 --WS3--
   Method: PUT
   Link: https://sirinerocketelevatorsrestapi.azurewebsites.net/api/interventions/completed/{id}
   Example: https://sirinerocketelevatorsrestapi.azurewebsites.net/api/interventions/completed/4 
   Scoop: to make the intervention status Completed, and set en ending date, and time
+  </br>
 
 
 
