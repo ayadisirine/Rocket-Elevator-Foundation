@@ -112,14 +112,33 @@ class InterventionsController < ApplicationController
           end 
     end
 
+    #At the time of saving the service request, 
+    #the website form creates a new ticket of type "problem" or "question" in ZenDesk. 
+    #It adds in the detail section of the created ticket all the data entered in the form:
+    ## CREATE ZENDDESK INTERVENTION TICKET ##
     def create_intervention_ticket
+        #Call zendesk API create new client method
         client = ZendeskAPI::Client.new do |config|
+            #Get config parameters from application.yml 
+            #These parameters are ignored by git 
             config.url = ENV['ZENDESK_URL']
             config.username = ENV['ZENDESK_USERNAME']
             config.token = ENV['ZENDESK_TOKEN']
         end
+        #create the ticket 
         ZendeskAPI::Ticket.create!(client,
+            #define subject with the current user name 
             :subject => "NEW INTERVENTION created by : " + @currentusername.to_s ,
+            #Requirements : 
+            #    The Requester
+            #    The Customer (Company Name)
+            #    Building ID
+            #    The Battery ID
+            #    The Column ID if specified
+            #    Elevator ID if specified
+            #    The employee to be assigned to the task
+            #    Description of the request for intervention
+
             :comment => "The customer ID :  #{params[:customer]} 
                        Building ID :  #{params[:building]} 
                        Battery ID :  #{params[:battery]} 
@@ -127,14 +146,13 @@ class InterventionsController < ApplicationController
                        Elevator ID :  #{params[:elevator]} 
                        Affected employee ID :  #{params[:employee]} 
                        Description :  #{params[:report]} ",
+            #Set the priority 
             :priority => "urgent",
+            #Set the type 
             :type => "question")
         end 
     end
-            
-    
-
- 
+    #Define permitted params 
     def intervention_params
         params.permit( :employee_id, :customer_id, :building_id, :battery_id, :column_id, :elevator_id, :result, :report, :status)
       end
