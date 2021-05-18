@@ -12,18 +12,18 @@ gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'popper_js', '~> 1.9', '>= 1.9.9'
 gem 'bootstrap', '~> 4.0.0'
-gem 'jquery-rails'
-gem 'font-awesome-rails'
-gem 'jquery-ui-rails'
-gem 'bootstrap-social-rails'
-gem 'sass-rails', '~> 5.0'
+gem 'jquery-rails', '>= 4.4.0'
+gem 'font-awesome-rails', '>= 4.7.0.7'
+gem 'jquery-ui-rails', '>= 6.0.1'
+gem 'bootstrap-social-rails', '>= 4.12.0'
+gem 'sass-rails', '~> 5.1', '>= 5.1.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -44,7 +44,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 #Adding Gmaps for rails 
 # gem 'gmaps4rails'
 # Fur user authentication
-gem 'devise'
+gem 'devise', '>= 4.7.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -53,7 +53,7 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
+  gem 'web-console', '>= 3.7.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -67,17 +67,17 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
+  gem 'capybara', '>= 3.35.3'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  gem 'chromedriver-helper', '>= 2.1.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Admin for Authentification 
- gem 'rails_admin', '~> 2.0'
+ gem 'rails_admin', '~> 2.1', '>= 2.1.0'
  
 # Google map for Admin
 # gem "rails_admin_map_field", :git => "https://github.com/beyondthestory/rails_admin_map_field.git"
@@ -95,7 +95,7 @@ gem "bootstrap-sass", "~> 2.3.2"
 gem 'pg'
 
 # Multiverse
-gem 'multiverse'
+gem 'multiverse', '>= 0.2.2'
 
 # Data Creation
 gem 'populator'
@@ -103,13 +103,13 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'csv'
 
 # Charts
-gem 'blazer'
+gem 'blazer', '>= 2.4.2'
 
 # Securing APIs
 gem 'figaro'
 
 # Twilio
-gem 'twilio-ruby'
+gem 'twilio-ruby', '>= 5.48.0'
 
 # Dropbox API gems
 gem 'dropbox_api'
@@ -126,7 +126,7 @@ gem 'zendesk_api'
 gem 'whenever', require: false
 
 #Rails_Admin Theme
-gem 'rails_admin_rollincode', '~> 1.0'
+gem 'rails_admin_rollincode', '~> 1.3'
 
 #Watson
 gem 'ibm_watson'
