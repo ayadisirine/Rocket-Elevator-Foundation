@@ -103,7 +103,7 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'csv'
 
 # Charts
-gem 'blazer'
+gem 'blazer', '>= 2.6.0'
 
 # Securing APIs
 gem 'figaro'
