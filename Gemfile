@@ -16,7 +16,7 @@ gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem 'jquery-ui-rails'
 gem 'bootstrap-social-rails'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0', '>= 6.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -77,7 +77,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Admin for Authentification 
- gem 'rails_admin', '~> 2.0'
+ gem 'rails_admin', '~> 2.1', '>= 2.1.0'
  
 # Google map for Admin
 # gem "rails_admin_map_field", :git => "https://github.com/beyondthestory/rails_admin_map_field.git"
@@ -126,7 +126,7 @@ gem 'zendesk_api'
 gem 'whenever', require: false
 
 #Rails_Admin Theme
-gem 'rails_admin_rollincode', '~> 1.0'
+gem 'rails_admin_rollincode', '~> 1.3'
 
 #Watson
 gem 'ibm_watson'
