@@ -4,30 +4,30 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.4', '>= 5.2.4.5'
+gem 'rails', '~> 6.1.7', '>= 6.1.7.3'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3', '>= 4.3.12'
 # Use SCSS for stylesheets
 gem 'popper_js', '~> 1.9', '>= 1.9.9'
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem 'jquery-ui-rails'
 gem 'bootstrap-social-rails'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0', '>= 6.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.11', '>= 2.11.2'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -53,7 +53,7 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
+  gem 'web-console', '>= 3.7.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -62,12 +62,12 @@ group :development do
   gem 'capistrano-rails', '~> 1.4', require: false
   gem 'capistrano-bundler', '>= 1.1.0'
   gem 'rvm1-capistrano3', require: false
-  gem 'capistrano3-puma'
+  gem 'capistrano3-puma', '>= 4.0.0'
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
+  gem 'capybara', '>= 3.35.3'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
@@ -77,7 +77,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Admin for Authentification 
- gem 'rails_admin', '~> 2.0'
+ gem 'rails_admin', '~> 2.1', '>= 2.1.0'
  
 # Google map for Admin
 # gem "rails_admin_map_field", :git => "https://github.com/beyondthestory/rails_admin_map_field.git"
@@ -87,8 +87,8 @@ gem "cancancan"
 
 
 #upload files
-gem "carrierwave","~> 0.9"
-gem "bootstrap-sass", "~> 2.3.2"
+gem "carrierwave", "~> 1.3", ">= 1.3.2"
+gem "bootstrap-sass", "~> 3.4.0"
 
 
 # PostgreSQL interface
@@ -103,7 +103,7 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'csv'
 
 # Charts
-gem 'blazer'
+gem 'blazer', '>= 2.6.0'
 
 # Securing APIs
 gem 'figaro'
@@ -126,7 +126,7 @@ gem 'zendesk_api'
 gem 'whenever', require: false
 
 #Rails_Admin Theme
-gem 'rails_admin_rollincode', '~> 1.0'
+gem 'rails_admin_rollincode', '~> 1.3'
 
 #Watson
 gem 'ibm_watson'
