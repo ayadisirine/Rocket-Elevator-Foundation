@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.4', '>= 5.2.4.5'
+gem 'rails', '~> 7.1.0'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
@@ -77,7 +77,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Admin for Authentification 
- gem 'rails_admin', '~> 2.0'
+ gem 'rails_admin', '~> 3.0', '>= 3.0.0'
  
 # Google map for Admin
 # gem "rails_admin_map_field", :git => "https://github.com/beyondthestory/rails_admin_map_field.git"
@@ -126,7 +126,7 @@ gem 'zendesk_api'
 gem 'whenever', require: false
 
 #Rails_Admin Theme
-gem 'rails_admin_rollincode', '~> 1.0'
+gem 'rails_admin_rollincode', '~> 1.4'
 
 #Watson
 gem 'ibm_watson'
