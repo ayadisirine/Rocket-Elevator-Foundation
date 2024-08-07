@@ -11,7 +11,7 @@ gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'popper_js', '~> 1.9', '>= 1.9.9'
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 5.0.0'
 gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem 'jquery-ui-rails'
