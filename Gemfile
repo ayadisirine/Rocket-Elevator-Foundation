@@ -109,18 +109,18 @@ gem 'blazer'
 gem 'figaro'
 
 # Twilio
-gem 'twilio-ruby'
+gem 'twilio-ruby', '>= 5.67.0'
 
 # Dropbox API gems
-gem 'dropbox_api'
-gem 'activestorage-dropbox'
+gem 'dropbox_api', '>= 0.1.21'
+gem 'activestorage-dropbox', '>= 2.0.0'
 
 # Slack
 gem "slack-notifier"
 
 # SendGrid 
 gem 'sendgrid-ruby'
-gem 'zendesk_api'
+gem 'zendesk_api', '>= 2.0.0'
 
 # Cron Job
 gem 'whenever', require: false
